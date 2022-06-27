@@ -6,6 +6,8 @@ import pluginForms from 'grapesjs-plugin-forms';
 import pluginExport from 'grapesjs-plugin-export';
 import pluginAviary from 'grapesjs-aviary';
 import pluginFilestack from 'grapesjs-plugin-filestack';
+import pluginCustomCode from 'grapesjs-custom-code';
+// import pluginGrid from '@documint/grapesjs-grid-system';
 
 import commands from './commands';
 import blocks from './blocks';
@@ -14,7 +16,7 @@ import panels from './panels';
 import styles from './styles';
 
 export default grapesjs.plugins.add(
-  'gjs-preset-popmart',
+  'gjs-preset-squirrel',
   (editor, opts = {}) => {
     let config = opts;
 
@@ -58,7 +60,7 @@ export default grapesjs.plugins.add(
       textDecorations: 'Decorations',
 
       // Text for Extra sector in Style Manager
-      textExtra: 'Extra111',
+      textExtra: 'Extra',
 
       // Use custom set of sectors for the Style Manager
       customStyleManager: [],
@@ -117,6 +119,8 @@ export default grapesjs.plugins.add(
     exportOpts && pluginExport(editor, exportOpts);
     aviaryOpts && pluginAviary(editor, aviaryOpts);
     filestackOpts && pluginFilestack(editor, filestackOpts);
+    pluginCustomCode(editor);
+    // pluginGrid(editor);
 
     // Load components
     components(editor, config);
